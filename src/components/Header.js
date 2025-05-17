@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -32,8 +32,14 @@ const socials = [
   },
 ];
 
+
+
 const Header = () => {
-  const handleClick = (anchor) => () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (anchor) => (e) => {
+    e.preventDefault()
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
@@ -45,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    
+
     <Box
       position="fixed"
       top={0}
@@ -64,20 +70,30 @@ const Header = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <nav style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            
-              {socials.map((social, index) => (
-                <a key={index} href={social.url} target="_blank">
-                  <FontAwesomeIcon icon={social.icon} size="2x" />
-                </a>
-              ))}
-            
-          </nav>
 
-          {/* Second nav for Projects and Contact me links */}
+         
+            <nav className="flex flex-wrap gap-2 sm:gap-4">
+              
+                {socials.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Link to ${social.name}`}
+                  >
+                    <FontAwesomeIcon icon={social.icon} size="2x" />
+                  </a>
+                ))}
+            </nav>
+          
+
+
+
           <nav>
             <HStack spacing={8}>
-              {/* Add your other nav links here */}
+              <a href="/#projects-section" onClick={handleClick('projects')}>Projects</a>
+              <a href="/#contactme-section" onClick={handleClick('contactme')}>Contact Me</a>
             </HStack>
           </nav>
         </HStack>
