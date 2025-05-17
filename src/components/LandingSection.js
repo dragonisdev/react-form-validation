@@ -18,8 +18,8 @@ const LandingSection = () => (
     <img className="rounded-full w-[120px] h-[120px]" src="/me.jpg" alt="profile icon" />
     <h1>{greeting}</h1>
 
-    <h2 className="text-4xl font-bold text-center pt-4 leading-[3rem]">A frontend developer <br/>
-    specialized in React</h2>
+    <h2 className="text-4xl font-bold text-center pt-4 leading-[3rem]">A frontend developer specialized<br/>
+    in React (˶˃ ᵕ ˂˶) .ᐟ.ᐟ</h2>
   </FullScreenSection>
 );
 

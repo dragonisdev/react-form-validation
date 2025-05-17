@@ -1,4 +1,5 @@
 import {createContext, useContext, useState} from "react";
+import { useEffect } from "react";
 
 const AlertContext = createContext(undefined);
 
@@ -8,8 +9,12 @@ export const AlertProvider = ({ children }) => {
     // Type can be either "success" or "error"
     type: 'success',
     // Message to be displayed, can be any string
-    message: '',
+    message: 'Good shit',
   });
+
+  useEffect(() => {
+    console.log("Alert state changed:", state);
+  }, [state]);
 
   return (
     <AlertContext.Provider
