@@ -45,6 +45,7 @@ const Header = () => {
   };
 
   return (
+    
     <Box
       position="fixed"
       top={0}
@@ -63,12 +64,20 @@ const Header = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <nav>
-            {/* Add social media links based on the `socials` data */}
+          <nav style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            
+              {socials.map((social, index) => (
+                <a key={index} href={social.url} target="_blank">
+                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                </a>
+              ))}
+            
           </nav>
+
+          {/* Second nav for Projects and Contact me links */}
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+              {/* Add your other nav links here */}
             </HStack>
           </nav>
         </HStack>
